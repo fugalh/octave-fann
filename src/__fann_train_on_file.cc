@@ -92,7 +92,11 @@ see @code{fann_train} for details. Users should always use\n\
     }
 
     /* Perform the training */
+    OCTAVE_QUIT;
+    BEGIN_INTERRUPT_IMMEDIATELY_IN_FOREIGN_CODE;
     fann_train_on_file(of.ann, filename, max_iterations, iterations_between_reports, desired_error);
+    END_INTERRUPT_IMMEDIATELY_IN_FOREIGN_CODE;
+
     
     return octave_value();
 }
