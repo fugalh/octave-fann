@@ -329,6 +329,12 @@ is 50.0.\n\
             }
             fann_set_rprop_delta_max(of.ann, value(0,0).scalar_value());
 
+        } else if (key == "momentum") {
+            if (!value(0,0).is_real_scalar()) {
+                error("Momentum must be a real scalar.\n");
+                return octave_value();
+            }
+            fann_set_learning_momentum(of.ann, value(0,0).scalar_value());
         } else {
             warning("Unknown parameter: %s", key.c_str());
         }
