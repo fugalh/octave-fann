@@ -1,0 +1,14 @@
+Name: octave-fann
+Version: 0.2.1
+Date: 2007-02-20
+Author: Søren Hauberg
+Maintainer: Søren Hauberg
+Title: Fast Artificial Neural Network
+Description: The octave-fann package provides an interface
+ to FANN 2.0. This gives you functions to train and run
+ feed forward neural networks.
+Categories: Neural Networks, AI
+Depends: octave (>= 2.9.7)
+Autoload: yes
+License: GPL version 2 or later
+Url: http://hauberg.org/octave-fann

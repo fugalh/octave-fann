@@ -1,0 +1,37 @@
+SH means Søren Hauberg
+
+2005-06-02: (SH)
+Release octave-fann-0.1
+
+2005-06-03: (SH)
+Renames:
+"fann_test_data_from_file"  to "__fann_test_data_from_file",
+"fann_train_on_file"        to "__fann_train_on_file", and
+"fann_init_weights_on_file" to "__fann_init_weights_on_file"
+since they should not be used by the user.
+
+2005-06-03: (SH)
+Fix minor typos in the documentation.
+
+2005-06-04: (SH)
+Remove tabs from the code - thanks to John W. Eaton for pointing this out
+
+2005-06-04: (SH)
+Use "print_usage" instead of "usage" in .cc files.
+
+2005-06-04: (SH)
+Don't print the address of the FANN in oct_fann::print
+
+2005-06-04: (SH)
+Added make targets "install" and "uninstall". Thanks to Marius Schamschula and
+John W. Eaton for helping out.
+
+2006-28-04: (Gonzalo A. de la Vega)
+Make it compile with fann 2.0.
+
+2006-28-4: (SH)
+Don't build fann_show, and release 0.2.0.
+
+2007-20-02: (SH)
+Make octave_fann work with the 2.9.x series of octave, and
+convert the code to a package.

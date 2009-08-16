@@ -1,0 +1,48 @@
+TODO FOR FANN-OCTAVE BINDING
+============================
+
+*) It is currently not possible to load fixed-point networks.
+   I think this is a feature, and not a bug. What do you think?
+*) Perhaps the LearningRate parameter should be removed from fann_create?
+*) Make fann_show work!
+   *) It is slow (unusable on large networks due to all the redraws).
+   *) It doesn't show connections to bias neurons 
+      (see http://hauberg.org/octave-fann/net.png).
+   *) It would be great if the thickness of the connection lines would
+      represent the size of the weights. Kinda like the use of the 
+      alphabet in fann_print_connections.
+   *) It would be nice if the neurons where drawed as filled points.
+   A good starting point is fann_print_connections.
+*) fann_read_data: If you read an existing non-data file Octave crashes!
+   I think this is a bug i FANN.
+*) autotools would be nice, but I don't know the first thing about them.
+   (this would be useful to make sure the user has FANN 1.2 (or newer) installed).
+
+*) More testing!!
+
+************************
+**       A P I        **
+************************
+
+The following functions need work:
+
+5.3. Training
+    FANN_TRAIN
+    ** This function only performs training on 1 data element.
+    ** Do we need this ?? This could be done in fann_train.m - no need for C.
+
+5.4. Training Data
+    FANN_SAVE_TRAIN_TO_FIXED (hard! I think...)
+    ** One implementation would be to:
+    ** in fann_save_train.m:
+    **   save the data to a tmp file and call __fann_save_train_to_fixed (doesn't currenty exist).
+    ** in __fann_save_train_to_fixed:
+    **   load the tmp file.
+    **   call fann_save_train_to_fixed
+
+5.5. Options
+    FANN_GET_DECIMAL_POINT -- Get the position of the decimal point.
+    FANN_GET_MULTIPLIER -- Get the multiplier.
+    ** Perhaps we should have a FANN_GET_FIXED_INFO that returns these two?
+    ** Since fixed-point networks aren't binded (except support for saving into fixed point)
+    ** then this really doesn't make sense.
