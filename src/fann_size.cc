@@ -38,18 +38,18 @@ Same as above except the number of connections is also returned.\n\
         error("First argument must be a FANN.\n");
         return octave_value();
     }
-    
+
     /* Get the FANN */
     const octave_base_value& rep = args(0).get_rep();
     const oct_fann& ann = ((const oct_fann &)rep);
-    
+
     RowVector size;
     /* For each layer: */
     for (struct fann_layer *layer = ann.ann->first_layer; layer < ann.ann->last_layer; layer++) {
         /* For each neuron: */
         // The minus one comes from the bias neuron
         const int num_neurons = layer->last_neuron - layer->first_neuron - 1;
-        size.resize_and_fill(1, size.length()+1, num_neurons);
+        size.resize_fill(1, size.length()+1, num_neurons);
     }
 
     octave_value_list output;
@@ -58,7 +58,7 @@ Same as above except the number of connections is also returned.\n\
         int connections = fann_get_total_connections(ann.ann);
         output.append(octave_value(connections));
     }
-    
+
     return output;
 }
 
